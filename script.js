@@ -15,31 +15,37 @@ const app = new Vue({
       albumList: [],
       apiPath: "http://localhost/php-ajax-dischi/server.php",
       filteredDiscs: [],
+      genres: ["Jazz", "Metal", "Rock", "Pop"],
     };
   },
 
-  computed: {
-    genres() {
-      console.log(this.albumList);
-      const genreList = [];
-      this.albumList.forEach((disc) => {
-        if (!genreList.includes(disc.genre)) {
-          genreList.push(disc.genre);
-          //   console.log(disc.genre);
-        }
-      });
+  //   computed: {
+  //     genres() {
+  //       //   console.log(this.albumList);
+  //       const genreList = [];
+  //       this.albumList.forEach((disc) => {
+  //         if (!genreList.includes(disc.genre)) {
+  //           genreList.push(disc.genre);
+  //           //   console.log(disc.genre);
+  //         }
+  //       });
 
-      console.log(genreList);
-      return genreList;
-    },
-  },
+  //       console.log(genreList);
+  //       return genreList;
+  //     },
+  //   },
 
   methods: {
     startFilter() {
-      let searchKeys = {
-        genre: this.key,
-        searchText: this.inputText,
-      };
+      axios
+        .get(this.apiPath + `?genre=${this.key}`)
+        .then((res) => {
+          console.log(res);
+          this.albumList = res.data;
+        })
+        .catch((error) => {
+          console.log(error);
+        });
     },
     filterDiscs(searchKeys) {
       //   console.log(`Filtering Discs by ${searchKeys.genre}`);
@@ -57,15 +63,6 @@ const app = new Vue({
     },
   },
   mounted() {
-    axios
-      .get(this.apiPath)
-      .then((res) => {
-        // console.log(res);
-        this.albumList = res.data;
-        this.filteredDiscs = this.albumList;
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    this.startFilter();
   },
 });
