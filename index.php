@@ -54,26 +54,6 @@ include __DIR__.'/database.php';
  </section>
     
 
-
-
-
-    <!-- <section class="container">
-    <div><FilterComp :discs="albumList" @startFilter="filterDiscs" /></div>
-    <div class="album-container row py-3 d-flex justify-content-center">
-      <div
-        v-for="(item, index) in filteredDiscs"
-        :key="index"
-        class="col-3 card justify-content-center align-items-center"
-      >
-        <img class="img-fluid" :src="item.poster" :alt="item.title" />
-        <div class="title-card">{{ item.title }}</div>
-        <div class="text-card">{{ item.author }}</div>
-        <div class="text-card">{{ item.genre }}</div>
-        <div class="text-card">{{ item.year }}</div>
-      </div>
-    </div>
-  </section> -->
-
   
 </body>
 </html>

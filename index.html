@@ -1,3 +1,10 @@
+<!-- Prima Milestone:
+Stampiamo i dischi solo con l’utilizzo di PHP, che stampa direttamente i dischi in pagina: al caricamento della pagina ci saranno tutti i dischi.
+Seconda Milestone:
+Attraverso l’utilizzo di axios: al caricamento della pagina axios chiederà, attraverso una chiamata api, i dischi a php e li stamperà attraverso vue.
+Bonus:
+Attraverso un’altra chiamata api, filtrare gli album per genere -->
+
 <!DOCTYPE html>
 
 <head>
@@ -28,10 +35,20 @@
       </div>
     </header>
     <section class="container">
-      <!-- <div><FilterComp :discs="albumList" @startFilter="filterDiscs" /></div> -->
+      <div class="selector" :discs="albumList" @startFilter="filterDiscs">
+        <select @change="startFilter" v-model="key" name="">
+          <option value="All">All</option>
+          <option v-for="(genre, index) in genres" :value="genre" :key="index">
+            {{ genre }}
+          </option>
+        </select>
+
+        <input type="text" v-model="inputText" @change="startFilter" />
+      </div>
+
       <div class="album-container row py-3 d-flex justify-content-center">
         <div
-          v-for="(item, index) in albums"
+          v-for="(item, index) in filteredDiscs"
           :key="index"
           class="col-3 album-card justify-content-center align-items-center"
         >
