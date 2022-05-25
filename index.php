@@ -26,6 +26,15 @@ include __DIR__.'/database.php';
     <title>PHP-Ajax-Dischi</title>
 </head>
 <body>
+<header class="d-flex justify-content-space-between align-items-center">
+    <div class="logo">
+      <img
+        src="https://grafica-facile.com/wp-content/uploads/2022/01/spotify-logo.png"
+        alt="logo"
+        class="img-fluid"
+      />
+    </div>
+  </header>
     <main>
         <?php foreach($albums as $value){ ?>
         <div class="container ">
@@ -36,5 +45,31 @@ include __DIR__.'/database.php';
         </div>
         <?php } ?>
     </main>
+
+
+    <!-- <section class="container">
+    <div><FilterComp :discs="albumList" @startFilter="filterDiscs" /></div>
+    <div class="album-container row py-3 d-flex justify-content-center">
+      <div
+        v-for="(item, index) in filteredDiscs"
+        :key="index"
+        class="col-3 card justify-content-center align-items-center"
+      >
+        <img class="img-fluid" :src="item.poster" :alt="item.title" />
+        <div class="title-card">{{ item.title }}</div>
+        <div class="text-card">{{ item.author }}</div>
+        <div class="text-card">{{ item.genre }}</div>
+        <div class="text-card">{{ item.year }}</div>
+      </div>
+    </div>
+  </section> -->
+
+  <!-- <div class="card">
+    <img :src="disc.poster" :alt="disc.title" />
+    <h2 class="title">{{ disc.title }}</h2>
+    <address class="author">{{ disc.author }}</address>
+    <time :datetime="disc.year" class="year">{{ disc.year }}</time>
+  </div> -->
+
 </body>
 </html>
