@@ -35,16 +35,26 @@ include __DIR__.'/database.php';
       />
     </div>
   </header>
-    <main>
-        <?php foreach($albums as $value){ ?>
-        <div class="container ">
-            <img src="<?php echo $value['poster']  ?>" alt="album">
-            <p id="title"> <?php echo $value['title'] ?></p>
-            <p><?php echo $value['author'] ?></p>
-            <p><?php echo $value['year'] ?></p>
+    
+    <section class="container ">
+
+           <div  class="album-container row py-3 d-flex justify-content-center" >
+           <?php foreach($albums as $value){ ?>
+           <div class="col-3 card justify-content-center align-items-center">
+        <img class="img-fluid" src="<?php echo $value['poster']  ?>" alt="album">
+        <div class="title-card"><?php echo $value['title'] ?></div>
+        <div class="text-card"><?php echo $value['author'] ?></div>
+        <div class="text-card"><?php echo $value['genre'] ?></div>
+        <div class="text-card"><?php echo $value['year'] ?></div>
         </div>
         <?php } ?>
-    </main>
+       
+         </div>
+         
+ </section>
+    
+
+
 
 
     <!-- <section class="container">
@@ -64,12 +74,6 @@ include __DIR__.'/database.php';
     </div>
   </section> -->
 
-  <!-- <div class="card">
-    <img :src="disc.poster" :alt="disc.title" />
-    <h2 class="title">{{ disc.title }}</h2>
-    <address class="author">{{ disc.author }}</address>
-    <time :datetime="disc.year" class="year">{{ disc.year }}</time>
-  </div> -->
-
+  
 </body>
 </html>
