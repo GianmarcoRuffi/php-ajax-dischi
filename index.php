@@ -37,19 +37,19 @@ include __DIR__.'/database.php';
   </header>
     
     <section class="container ">
-
+    <?php foreach($albums as $value){ ?>
            <div  class="album-container row py-3 d-flex justify-content-center" >
-           <?php foreach($albums as $value){ ?>
-           <div class="col-3 card justify-content-center align-items-center">
-        <img class="img-fluid" src="<?php echo $value['poster']  ?>" alt="album">
-        <div class="title-card"><?php echo $value['title'] ?></div>
-        <div class="text-card"><?php echo $value['author'] ?></div>
-        <div class="text-card"><?php echo $value['genre'] ?></div>
-        <div class="text-card"><?php echo $value['year'] ?></div>
-        </div>
-        <?php } ?>
-       
+          
+           <div class="col-3 flex card justify-content-center align-items-center">
+          <img class="img-fluid" src="<?php echo $value['poster']  ?>" alt="album">
+          <div class="title-card"><?php echo $value['title'] ?></div>
+          <div class="text-card"><?php echo $value['author'] ?></div>
+          <div class="text-card"><?php echo $value['genre'] ?></div>
+          <div class="text-card"><?php echo $value['year'] ?></div>
+          </div>
+          
          </div>
+         <?php } ?>
          
  </section>
     
